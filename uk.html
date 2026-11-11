@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="uk" data-lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- The public landing page. Source of truth: store/site/landing.html.
+     tool/build_site.dart writes index.html (English) and uk.html (Ukrainian):
+     it keeps one language's lang blocks, one button state's state blocks, the
+     clip or noclip blocks and one headline's hl blocks (comment markers),
+     fills the double-underscore placeholders, and checks the result.
+     Static: no scripts, no outside fonts, no tracking. -->
+
+<title>Khol: холостий тренаж і таймер пострілів</title>
+<meta name="description" content="Таймер пострілів і книга вправ для холостого тренажу з гвинтівкою, у телефоні, який завжди з вами. Офлайн. Без облікового запису.">
+<meta property="og:title" content="Khol: холостий тренаж і таймер пострілів">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vetblack1.github.io/Khol---privacy-page/uk.html">
+<meta property="og:image" content="https://vetblack1.github.io/Khol---privacy-page/img/og-uk.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vetblack1.github.io/Khol---privacy-page/img/og-uk.png">
+<link rel="canonical" href="https://vetblack1.github.io/Khol---privacy-page/uk.html">
+<link rel="alternate" hreflang="en" href="https://vetblack1.github.io/Khol---privacy-page/">
+<link rel="alternate" hreflang="uk" href="https://vetblack1.github.io/Khol---privacy-page/uk.html">
+<link rel="alternate" hreflang="x-default" href="https://vetblack1.github.io/Khol---privacy-page/">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon-180.png">
+<link rel="preload" as="font" type="font/woff2" href="fonts/FiraSansExtraCondensed-Bold.woff2" crossorigin>
+
+<meta name="color-scheme" content="dark">
+<style>
+@font-face { font-family: "Fira Sans"; font-weight: 400; font-display: swap; src: url(fonts/FiraSans-Regular.woff2) format("woff2"); }
+@font-face { font-family: "Fira Sans Extra Condensed"; font-weight: 700; font-display: swap; src: url(fonts/FiraSansExtraCondensed-Bold.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; font-display: swap; src: url(fonts/JetBrainsMono.woff2) format("woff2"); }
+/* Khol's Black theme (DESIGN.md themes.black). One colour plus black and white; nothing else.
+   Layout: "Field manual" (design shotgun, 2026-11-11): a poster-size headline, chapters whose
+   titles hold still on the left on desktop, a spec-sheet for what the timer hears. */
+:root {
+  --paper: #151515;
+  --surface: #212121;
+  --ink: #F2F0EB;
+  --muted: #8E8E8E;
+  --line: #303030;
+  --outline: #6C6C6A;
+  --action: #F2F0EB;
+  --on-action: #0B0B0B;
+  --display: "Fira Sans Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "Fira Sans", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; caret-color: var(--ink); }
+::selection { background: var(--ink); color: var(--on-action); }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body); }
+.page {
+  max-width: 1120px; margin: 0 auto;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) max(48px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+a { color: var(--ink); text-underline-offset: 3px; }
+a:visited { color: var(--muted); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+svg.i { width: 22px; height: 22px; flex: none; }
+
+/* Top bar: wordmark and the language switch. */
+.bar {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-block: max(8px, env(safe-area-inset-top, 0px)) 8px; background: var(--paper); border-bottom: 1px solid var(--line);
+}
+.bar img { display: block; height: 28px; width: auto; }
+.seg { display: inline-flex; border: 1px solid var(--ink); border-radius: 2px; overflow: hidden; }
+.seg a {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 56px; min-height: 48px; padding: 0 16px;
+  font: 700 16px/1 var(--display); text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); text-decoration: none;
+}
+.seg a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+
+/* Cover: the headline is the poster; the proof sits beside it from 960px. */
+.cover { display: grid; gap: 20px; padding-block: 28px 8px; }
+.cover .copy { display: grid; gap: 20px; align-content: end; }
+h1 { font: 700 clamp(44px, 13vw, 96px)/0.88 var(--display); text-transform: uppercase; margin: 0; text-wrap: balance; }
+html[lang="uk"] h1 { font-size: clamp(40px, 11.5vw, 84px); }
+.sub { margin: 0; max-width: 40ch; font-size: 18px; }
+.act { display: grid; gap: 8px; max-width: 420px; }
+.cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 56px; padding: 0 20px;
+  background: var(--action); color: var(--on-action); border-radius: 2px; text-decoration: none;
+  font: 700 20px/1.1 var(--display); text-transform: uppercase; letter-spacing: 0.03em;
+  transition: transform 90ms ease-out;
+}
+.cta:visited { color: var(--on-action); }
+.cta:active { transform: scale(0.97); }
+.note, .caption { margin: 0; color: var(--muted); font-size: 16px; }
+.media { display: grid; gap: 8px; max-width: 420px; align-content: end; }
+.media video, .media img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 2px;
+}
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.kicker, h2.kicker { font: 400 13px/1.3 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+
+/* Chapters: a big title, then the content; on desktop the title stays put on the left. */
+.chapter { display: grid; gap: 16px; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--ink); }
+.chapter > h2 { font: 700 clamp(32px, 9vw, 56px)/0.95 var(--display); text-transform: uppercase; margin: 0; text-wrap: balance; }
+.chapter .body { min-width: 0; }
+p { margin: 0 0 12px; max-width: 65ch; }
+
+/* The hearing block: a spec sheet. */
+dl.spec { margin: 0; display: grid; grid-template-columns: minmax(96px, auto) 1fr; gap: 0 20px; }
+dl.spec dt, dl.spec dd { margin: 0; padding-block: 14px; border-bottom: 1px solid var(--line); }
+dl.spec dt { font: 400 13px/1.9 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+dl.spec ul { margin: 0; padding-left: 20px; }
+.tag { display: inline-block; margin-left: 8px; padding: 0 6px; border: 1px solid var(--outline); border-radius: 2px; font: 400 12px/1.6 var(--body); letter-spacing: 0.08em; vertical-align: 1px; color: var(--ink); }
+.refund { margin: 24px 0 0; font: 700 24px/1.15 var(--display); text-transform: uppercase; max-width: 30ch; }
+
+/* Screenshots: one large frame and two below it; three across from 960px. */
+.shots { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.shots figure { margin: 0; display: grid; gap: 6px; }
+.shots figure.lead { grid-column: 1 / -1; justify-self: center; width: min(300px, 100%); }
+.shots a { display: block; }
+.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 2px; }
+.shots figcaption { color: var(--muted); font-size: 16px; }
+
+.facts { list-style: none; margin: 0; padding: 0; }
+.facts li { padding-block: 12px; border-bottom: 1px solid var(--line); font: 700 26px/1.1 var(--display); text-transform: uppercase; }
+
+details { border-bottom: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer; min-height: 56px; padding-block: 12px; display: flex; align-items: center;
+  font: 700 20px/1.2 var(--display); text-transform: uppercase;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; margin-left: auto; padding-left: 16px; color: var(--muted); font-family: var(--mono); }
+details[open] summary::after { content: "\2212"; }
+details p { padding-bottom: 8px; }
+
+/* Social: full-width rows with the network's mark, its name, the handle and an arrow. */
+.social { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.social a {
+  display: grid; grid-template-columns: 40px 1fr auto 20px; align-items: center; gap: 12px; min-height: 72px;
+  border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none;
+}
+.social .ic { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--outline); border-radius: 2px; }
+.social b { font: 700 24px/1 var(--display); text-transform: uppercase; }
+.social span.h { color: var(--muted); font-size: 15px; text-align: right; }
+.social .go { width: 20px; height: 20px; color: var(--muted); }
+.social a:hover .go, .social a:focus-visible .go { color: var(--ink); }
+
+.end { margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--ink); display: grid; gap: 20px; }
+.end .slogan { font: 700 clamp(44px, 13vw, 96px)/0.88 var(--display); text-transform: uppercase; margin: 0; }
+html[lang="uk"] .end .slogan { font-size: clamp(40px, 11.5vw, 84px); }
+footer { margin-top: 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 16px; }
+footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 20px; }
+footer a { display: inline-flex; align-items: center; min-height: 48px; color: var(--muted); }
+footer a:visited { color: var(--muted); }
+
+@media (min-width: 960px) {
+  .cover { grid-template-columns: 1fr 400px; gap: 48px; align-items: end; padding-top: 64px; }
+  .chapter { grid-template-columns: 300px 1fr; gap: 48px; }
+  .chapter > h2 { position: sticky; top: 88px; align-self: start; }
+  .shots { grid-template-columns: repeat(3, 1fr); }
+  .shots figure.lead { grid-column: auto; width: 100%; }
+  .end { grid-template-columns: 1fr 420px; align-items: end; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition: none; }
+  .cta:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.319 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.007.128 12.3 12.3 0 0 1-1.873.891.077.077 0 0 0-.041.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.157-1.086-2.157-2.419s.956-2.419 2.157-2.419c1.211 0 2.176 1.095 2.157 2.419 0 1.333-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419s.955-2.419 2.157-2.419c1.211 0 2.176 1.095 2.157 2.419 0 1.333-.946 2.419-2.157 2.419z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-threads" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><circle cx="12" cy="12" r="4"/><path d="M16 8v5.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.6 7.2"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" d="M5 12h13M13 6l6 6-6 6"/></symbol>
+</svg>
+<div class="page">
+<header class="bar">
+  <img src="img/logo-khol.png" width="72" height="28" alt="Khol">
+  <nav class="seg" aria-label="Language / Мова">
+    <a href="index.html" hreflang="en" lang="en">EN</a>
+    <a href="uk.html" hreflang="uk" lang="uk" aria-current="page">УК</a>
+  </nav>
+</header>
+
+
+
+
+<main>
+  <div class="cover">
+    <div class="copy">
+      
+      <h1>Таймер для холостого тренажу у вашому телефоні</h1>
+      <p class="sub">Вправи для холостого тренажу, пар-час і журнал тренувань для власників гвинтівок. Офлайн. Без облікового запису.</p>
+      <div class="act">
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeeVEUUZfWa8bci0KVu0SbC3Ttvvxzyjq8v04hLYDfWbFAk3g/viewform" rel="noopener">Долучитися до тесту<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="note">Android 7+ · Зареєструйтеся, потім купіть у Google Play</p>
+        
+        
+      </div>
+    </div>
+    <div class="media">
+      
+      <img src="img/hero-run-4x5-uk.jpg" width="720" height="900" fetchpriority="high" alt="Екран повтору Khol: 1,09 с при пар-часі 1,5 с, слухає постріл">
+      <p class="caption">Екран повтору</p>
+    </div>
+  </div>
+
+  <section class="chapter" aria-labelledby="hears-h">
+    <h2 id="hears-h">Що він чує</h2>
+    <div class="body">
+      <dl class="spec">
+        <dt>Холостий</dt><dd>Чує холостий спуск після хвилинного калібрування.</dd>
+        <dt>Бойовий</dt><dd>Слухає постріли на стрільбищі.<span class="tag">Бета</span> Спробуйте у свій день на стрільбищі.</dd>
+        <dt>Перевірено</dt><dd><ul><li>Samsung Galaxy Z Fold</li></ul><a href="https://discord.gg/ERa8T6P5fc" rel="noopener">Вашого телефона немає в списку? Запитайте в Discord</a></dd>
+        <dt>Важко</dt><dd><ul><li>AR-15 зі спущеним курком не клацає на холостому спуску.</li><li>Гучні стрілецькі місця, де стріляють багато людей.</li></ul>Пропущений постріл можна додати дотиком; він залишиться позначеним як доданий вручну.</dd>
+      </dl>
+      <p class="refund">Не чує ваш? Протягом 48 годин після покупки можна попросити Google Play повернути кошти.</p>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="app-h">
+    <h2 id="app-h">Застосунок</h2>
+    <div class="body shots">
+      
+      <figure><a href="img/drill-uk-full.jpg"><img src="img/drill-uk-360.jpg" srcset="img/drill-uk-360.jpg 360w, img/drill-uk-720.jpg 720w" sizes="(min-width: 960px) 220px, calc(50vw - 22px)" width="360" height="634" loading="lazy" alt="Сторінка вправи Khol: кроки, норматив і типові помилки"></a><figcaption>Сторінка вправи</figcaption></figure>
+      <figure><a href="img/summary-uk-full.jpg"><img src="img/summary-uk-360.jpg" srcset="img/summary-uk-360.jpg 360w, img/summary-uk-720.jpg 720w" sizes="(min-width: 960px) 220px, calc(50vw - 22px)" width="360" height="634" loading="lazy" alt="Підсумок Khol: 5 з 5 влучань у межах пару і новий рекорд"></a><figcaption>Підсумок</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="pay-h">
+    <h2 id="pay-h">Одна оплата. І все.</h2>
+    <ul class="body facts">
+      <li>Одна оплата, без підписки</li>
+      <li>Без облікового запису</li>
+      <li>Без реклами</li>
+      <li>Усе, що ви вводите, залишається на вашому телефоні.</li>
+    </ul>
+  </section>
+
+  <section class="chapter" aria-labelledby="faq-h">
+    <h2 id="faq-h">Запитання</h2>
+    <div class="body">
+      <details><summary>Як телефон чує холостий спуск?</summary><p>Мікрофон слухає клацання вашого спуску. Хвилинне калібрування запам'ятовує клацання вашої гвинтівки; нічого не записується, звук аналізується на телефоні.</p></details>
+      <details><summary>Чи працює він з моєю гвинтівкою?</summary><p>Якщо спуск клацає, так. AR-15 зі спущеним курком не клацає: зводьте перед кожним спуском.</p></details>
+      <details><summary>А на гучному стрільбищі?</summary><p>Покладіть телефон близько, перед собою. Якщо постріл пропущено, додайте його дотиком; він залишиться позначеним як доданий вручну.</p></details>
+      <details><summary>А якщо він не чує мій?</summary><p>Напишіть на <a href="mailto:kholtimer@gmail.com">kholtimer@gmail.com</a>, вказавши модель телефона і гвинтівку. Протягом 48 годин після покупки можна попросити Google Play повернути кошти.</p></details>
+    </div>
+  </section>
+
+  <section class="chapter" aria-labelledby="ask-h">
+    <h2 id="ask-h">Подивитися і запитати</h2>
+    <ul class="body social">
+      <li><a href="https://discord.gg/ERa8T6P5fc" rel="noopener"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-discord"/></svg></span><b>Discord</b><span class="h">тестувальники, стрільбище</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="https://www.instagram.com/kholapp" rel="noopener"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-instagram"/></svg></span><b>Instagram</b><span class="h">@kholapp</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li><a href="https://www.threads.net/@kholapp" rel="noopener"><span class="ic"><svg class="i" aria-hidden="true"><use href="#i-threads"/></svg></span><b>Threads</b><span class="h">@kholapp</span><svg class="go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+    </ul>
+  </section>
+
+  <section class="end" aria-labelledby="close-h">
+    <h2 class="slogan" id="close-h">Кожен постріл має значення.</h2>
+    <div class="act">
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeeVEUUZfWa8bci0KVu0SbC3Ttvvxzyjq8v04hLYDfWbFAk3g/viewform" rel="noopener">Долучитися до тесту<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      
+      
+    </div>
+  </section>
+</main>
+<footer>
+  <ul>
+    <li><a href="privacy/uk.html">Конфіденційність</a></li>
+    <li><a href="terms/uk.html">Умови використання</a></li>
+    <li><a href="mailto:kholtimer@gmail.com">kholtimer@gmail.com</a></li>
+  </ul>
+</footer>
+
+</div>
+</body>
+</html>
