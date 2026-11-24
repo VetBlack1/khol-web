@@ -69,10 +69,10 @@ ol, ul { margin: 0 0 12px; padding-left: 22px; display: grid; gap: 8px; max-widt
 li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
 .ui { font-weight: 600; white-space: nowrap; }
 .path { color: var(--muted); }
-.safety {
+.safety, .notice {
   border: 2px solid var(--ink); border-radius: 4px; padding: 16px 18px; display: grid; gap: 6px;
 }
-.safety strong { font: 700 22px/1.1 var(--display); text-transform: uppercase; }
+.safety strong, .notice strong { font: 700 22px/1.1 var(--display); text-transform: uppercase; }
 .weeks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .week { background: var(--surface); border-radius: 4px; padding: 18px; min-width: 0; }
 .week .when { font: 500 12px/1.3 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
@@ -104,11 +104,18 @@ html[data-lang="en"] [lang-block="en"], html[data-lang="uk"] [lang-block="uk"] {
   <!-- ENGLISH -->
   <div lang-block="en" lang="en">
     <header class="hero">
-      <span class="eyebrow">Closed test · Android</span>
+      <span class="eyebrow">Closed test (ended) · Android</span>
       <h1>Every shot counts</h1>
       <p class="lede">Thank you for testing Khol before it goes on Google Play. Khol is a dry-fire and live-fire trainer for rifle and carbine, and your phone is the shot timer: it hears your shots.</p>
       <div class="meta"><span class="chip">Build 96</span><span class="chip">14 days</span><span class="chip">Android 7+</span></div>
     </header>
+
+    <section>
+      <div class="notice">
+        <strong>The closed test has ended</strong>
+        <p>Thank you. Your reports shaped the builds that followed. Keep Khol installed: the public version comes as an update from the same Google Play listing, and what you paid carries over. Reports are still welcome at kholtimer@gmail.com.</p>
+      </div>
+    </section>
 
     <section>
       <div class="safety">
@@ -194,11 +201,18 @@ Screenshot or screen recording: attached</pre>
   <!-- УКРАЇНСЬКА -->
   <div lang-block="uk" lang="uk">
     <header class="hero">
-      <span class="eyebrow">Закрите тестування · Android</span>
+      <span class="eyebrow">Закрите тестування (завершено) · Android</span>
       <h1>Кожен постріл має значення</h1>
       <p class="lede">Дякуємо, що тестуєте Khol до виходу в Google Play. Khol — тренажер холостого тренажу й бойової стрільби для гвинтівки та карабіна, а ваш телефон — таймер пострілів: він чує постріли.</p>
       <div class="meta"><span class="chip">Збірка 96</span><span class="chip">14 днів</span><span class="chip">Android 7+</span></div>
     </header>
+
+    <section>
+      <div class="notice">
+        <strong>Закрите тестування завершено</strong>
+        <p>Дякуємо. Ваші звіти вплинули на наступні збірки. Не видаляйте Khol: публічна версія прийде оновленням із тієї самої сторінки в Google Play, а ваша покупка зберігається. Звіти, як і раніше, чекаємо на kholtimer@gmail.com.</p>
+      </div>
+    </section>
 
     <section>
       <div class="safety">
